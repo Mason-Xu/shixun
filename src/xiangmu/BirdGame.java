@@ -23,6 +23,7 @@ public class BirdGame extends JPanel {
     Ground ground;
     BufferedImage background;
     Huaji huaji1;
+    Huaji huaji2;
 
     Boolean gameOver;
     /**
@@ -50,11 +51,12 @@ public class BirdGame extends JPanel {
         gameOverImage = ImageIO.read(getClass().getResource("gameover.jpg"));
         bird = new Bird();
         huaji1 = new Huaji(1);
+        huaji2 = new Huaji(2);
         column1 = new Column(1);
         column2 = new Column(2);
         ground = new Ground();
 
-        background = ImageIO.read(getClass().getResource("bg.jpg"));
+        background = ImageIO.read(getClass().getResource("bg04.jpg"));
     }
 
     /**
@@ -71,6 +73,7 @@ public class BirdGame extends JPanel {
                             column2 = new Column(2);
                             bird = new Bird();
                             huaji1 = new Huaji(1);
+                            huaji2 = new Huaji(2);
                             score = 0;
                             state = START;
                             break;
@@ -162,7 +165,7 @@ public class BirdGame extends JPanel {
         Font f = new Font(Font.SANS_SERIF, Font.BOLD, 40);
         g.setFont(f);
         g.drawString("" + score, 40, 60);
-        g.setColor(Color.white);
+        g.setColor(Color.orange);
         g.drawString("" + score, 40 - 3, 60 - 3);
 
         //	if(gameOver) {
@@ -189,7 +192,7 @@ public class BirdGame extends JPanel {
         int height;
 
         public Ground() throws Exception {
-            image = ImageIO.read(getClass().getResource("ground.jpg"));
+            image = ImageIO.read(getClass().getResource("ground02.jpg"));
             width = image.getWidth();
             height = image.getHeight();
             x = 0;
@@ -269,7 +272,7 @@ public class BirdGame extends JPanel {
 
 
         public Bird() throws Exception {
-            image = ImageIO.read(getClass().getResource("0.jpg"));
+            image = ImageIO.read(getClass().getResource("gou.png"));
             width = image.getWidth();
             height = image.getHeight();
             x = 132;
@@ -286,7 +289,7 @@ public class BirdGame extends JPanel {
             //创建一个数组，包含八个元素
             images = new BufferedImage[8];
             for (int i = 0; i < 8; i++) {
-                images[i] = ImageIO.read(getClass().getResource(i + ".jpg"));
+                images[i] = ImageIO.read(getClass().getResource("gou.png"));
             }
             index = 0;
         }
@@ -348,7 +351,7 @@ public class BirdGame extends JPanel {
         Random random = new Random();
 
         public Huaji(int n) throws Exception {
-            image = ImageIO.read(getClass().getResource("huaji.jpg"));
+            image = ImageIO.read(getClass().getResource("huaji.png"));
             width = image.getWidth();
             height = image.getHeight();
             distance = 245;
@@ -365,4 +368,3 @@ public class BirdGame extends JPanel {
         }
     }
 }
-
